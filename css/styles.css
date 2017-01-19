@@ -1,0 +1,20 @@
+/*CLASSES START HERE*/
+
+.borderDemo{
+    border-style: solid;
+    border-width: 1px;
+}
+
+/*IDS START HERE*/
+
+/*DEFAULTS START HERE*/
+
+nav{
+    width:20%;
+    float: left;
+    height:500px;
+}
+
+main{
+    height:500px;
+}
