@@ -1,8 +1,13 @@
 <?php
 
 echo'<header>
-	<!--TODO: separate into inc. files-->
+	
 	Header
+	
+	<div>
+		a b c d e f g h
+	</div>
+	
 </header>';
 
 ?>
