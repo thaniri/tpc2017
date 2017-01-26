@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_Session["username"])){
-	echo'<main class="borderDemo">
+	echo'<main>
 		<form method="POST" action="php/login.php">
 			<p>Login:</p><input type="textbox" name="login"></input>
 			<p>Password:</p><input type="password" name="password"></input>

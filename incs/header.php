@@ -1,6 +1,6 @@
 <?php
 
-echo'<header class="borderDemo">
+echo'<header>
 	<!--TODO: separate into inc. files-->
 	Header
 </header>';

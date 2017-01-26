@@ -1,5 +1,5 @@
 <?php
-echo'<footer class="borderDemo">
+echo'<footer>
 		<!--TODO: separate into inc. files-->
 		Footer
 	</footer>';

@@ -1,6 +1,6 @@
 <?php
 
-echo'<main class="borderDemo">
+echo'<main>
             <!--TODO: separate into inc. files-->
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam faucibus magna mi, in feugiat leo suscipit dignissim. In eget ipsum molestie, lacinia sem et, facilisis turpis. Sed vel nunc euismod, ultricies nulla vel, placerat nunc. Mauris vitae nunc enim. Donec ut sodales dolor. Maecenas placerat finibus ornare. Phasellus varius, odio sed cursus efficitur, felis arcu pretium odio, convallis volutpat elit neque id augue. Praesent varius libero nec sem pulvinar, eget sodales augue hendrerit. Proin nec nulla id diam hendrerit fringilla eu cursus ligula. Sed varius ut ante tristique tempor. Nullam fermentum feugiat augue vel dapibus. Cras a gravida quam. Praesent tincidunt in augue sit amet auctor.</p>
             <div class="colourSwatch">

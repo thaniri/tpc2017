@@ -51,11 +51,6 @@ table {
 
 /*CLASSES START HERE*/
 
-.borderDemo{
-    border-style: solid;
-    border-width: 1px;
-}
-
 .colourDemo{
     width:200px;
 }
@@ -93,11 +88,17 @@ table {
 #leftCol{
 	float:left;
 	width:25%;
+	padding-bottom: 99999px;
+    margin-bottom: -99999px;
+	overflow: hidden;
 }
 
 #rightCol{
 	float:right;
-	width:75%;
+	width:74%;
+	padding-bottom: 99999px;
+    margin-bottom: -99999px;
+	overflow: hidden;
 }
 
 /*DEFAULT TAG NAMES START HERE*/
