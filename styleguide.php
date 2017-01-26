@@ -9,9 +9,11 @@
 			<?php include 'incs/nav.php';?>
 		</div>
 		<div id="rightCol">
-			<?php include 'incs/header.php';?>
-			<?php include 'incs/mainStyleGuide.php';?>
-			<?php include 'incs/footer.php';?>
+			<?php 
+				include 'incs/header.php';
+				include 'incs/mainStyleGuide.php';
+				include 'incs/footer.php';
+			?>
 		</div>
     </body>
 </html>
