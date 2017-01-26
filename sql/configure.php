@@ -1,0 +1,10 @@
+<php?
+
+$host = 'tpc2017.cnd231jurlnn.us-west-2.rds.amazonaws.com';
+$user = 'tpcadmin';
+$password = '3lmerfudd';
+$database = 'test';
+//variables for establishing a connection to the database
+$link = mysqli_connect($host, $user, $password, $database);
+
+?>
