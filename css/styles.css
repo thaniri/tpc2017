@@ -90,14 +90,15 @@ table {
     background-color:#BBDEFB;
 }
 
+#leftCol{
+	float:left;
+	width:25%;
+}
+
+#rightCol{
+	float:right;
+	width:75%;
+}
+
 /*DEFAULT TAG NAMES START HERE*/
 
-nav{
-    width:20%;
-    float: left;
-    min-height:500px;
-}
-
-main{
-    min-height:500px;
-}
