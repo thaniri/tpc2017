@@ -14,10 +14,6 @@
 				include 'incs/main.php';
 				include 'incs/footer.php';
 			?>
-			<h1>
-			
-			</h1>
 		</div>
     </body>
 </html>
-<p> test daniel </p>
