@@ -1,8 +1,11 @@
 <!DOCTYPE html>
     <head>
-        <title>Homepage</title>
+        <title>Style Guide</title>
+		<meta name="description" content="TPC Ecommerce Home Page">
+		<meta charset="UTF-8">
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="icon" type="image/ico" href="images/logo.ico"/>
     </head>
     <body>
 		<div id="leftCol">
