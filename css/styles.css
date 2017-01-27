@@ -59,47 +59,98 @@ table {
     margin:10px;
 }
 
-/*IDS START HERE*/
+/*COLOURS START HERE*/
 
-#primaryColour{
+.primaryColour{
     background-color:#4CAF50;
 }
 
-#secondaryColour{
+.secondaryColour{
     background-color:#388E3C;
 }
 
-#tertiaryColour{
+.tertiaryColour{
     background-color:#C8E6C9;
 }
 
-#primaryColourAccent{
+.primaryColourAccent{
     background-color:#2196F3;
 }
 
-#secondaryColourAccent{
+.secondaryColourAccent{
     background-color:#1976D2;
 }
 
-#tertiaryColourAccent{
+.tertiaryColourAccent{
     background-color:#BBDEFB;
 }
 
+/*IDS START HERE*/
+
 #leftCol{
 	float:left;
-	width:25%;
+	height:100%;
+	width:256px;
 	padding-bottom: 99999px;
     margin-bottom: -99999px;
 	overflow: hidden;
+	display: inline-block;
+}
+
+#topNav{
+	border-bottom: 1px solid #e0e0e0;
+	text-align:center;
+}
+
+#topNav img{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#topNav, header{
+	height:64px;
+}
+
+#botNav{
+	border-top: 1px solid #e0e0e0;
+	text-align:center;
+	position:relative;
+	bottom:0px;
+}
+
+#botNav, footer{
+	height:96px;
 }
 
 #rightCol{
-	float:right;
-	width:74%;
+	float:left;
+	height:100%;
 	padding-bottom: 99999px;
     margin-bottom: -99999px;
 	overflow: hidden;
+	width:70%;
+	display: inline-block;
+	
 }
 
 /*DEFAULT TAG NAMES START HERE*/
 
+body, html{
+  height: 100%;
+}
+
+header{
+	background-color:#4CAF50;
+	box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+nav{
+	border-right: 1px solid #e0e0e0;
+	min-height:100%;
+	box-sizing:border-box;
+}
+
+footer{
+	background-color:#4CAF50;
+}

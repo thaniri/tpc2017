@@ -1,12 +1,14 @@
 <?php
 echo'<nav>
 	<div id="topNav">
-		<h1>TPC</h1><img src="./images/logo.svg"></img>
+		<img src="./images/logo.svg" height="40px" width="40px"><span>TPC 2017</span></img>
 	</div>
-	<ul>
-		<li><a href="./index.php">Home</a></li>
-		<li><a href="./styleguide.php">Style Guide</a></li>
-	</ul>
+	<div id="centerNav">
+		<ul>
+			<li><a href="./index.php">Home</a></li>
+			<li><a href="./styleguide.php">Style Guide</a></li>
+		</ul>
+	</div>
 	<div id="botNav">
 		<p>Text</p>
 	</div>

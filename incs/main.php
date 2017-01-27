@@ -2,7 +2,7 @@
 
 if(!isset($_Session["username"])){
 	echo'<main>
-		<form method="POST" action="php/login.php">
+		<form method="POST" action="php/login.php" style="padding:10px;">
 			<p>Login:</p><input type="textbox" name="login"></input>
 			<p>Password:</p><input type="password" name="password"></input>
 			<input type="submit" name="submit"></input>
