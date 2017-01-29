@@ -10,7 +10,3 @@ CSS Licensing:
     Apache License, Version 2.0
 
 To run this page locally: Use XAMPP/LAMP/WAMP/MAMP and replace the htdocs folder with the this repository
-
-Temporary username and password while I learn more about hashing:
-jdoe@tpc.com
-42a$10$BtGOQ51GYQCBhk4LOG3WjuK6tbqk4LtOEQzReWYtON4WdWj.gZaue
