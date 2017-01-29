@@ -1,16 +1,12 @@
 <?php
+session_start();
 
-if(!isset($_Session["username"])){
-	echo'<main>
-		<form method="POST" action="php/login.php" style="padding:10px;">
-			<p>Login:</p><input type="textbox" name="login"></input>
-			<p>Password:</p><input type="password" name="password"></input>
-			<input type="submit" name="submit"></input>
-		</form>
-	</main>';
+echo 'hi ';
+if (isset($_SESSION['loggedin'])){
+	echo $_SESSION['email'];
 }
 else{
-	echo 'This is what happens if they have a session already';
+	echo '<br/>not logged in';
 }
 
 
