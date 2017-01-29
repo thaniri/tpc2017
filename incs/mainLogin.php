@@ -43,24 +43,4 @@ function login($email, $password){
 	}
 }
 
-function displayAll(){
-    include './sql/configure.php';
-    if(!$link){
-        echo mysqli_connect_error();
-        die();
-    }
-    $pw = '42a$10$BtGOQ51GYQCBhk4LOG3WjuK6tbqk4LtOEQzReWYtON4WdWj.gZaue';
-    $sql = 'select cemail, chash from customer where chash = "'.$pw.'"';
-    $result = $link->query($sql);
-    if ($result->num_rows > 0){
-         $row = mysqli_fetch_array($result);
-         echo $row[0];
-         echo $row[1];
-    }
-    else{
-        echo 'no';
-    }
-
-}
-
 ?>
