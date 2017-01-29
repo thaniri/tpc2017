@@ -1,19 +1,35 @@
 <?php
 
 session_start();
-if(isset($_SESSION['loggedin'])){
-	header('Location: ./index.php');
-    die();
-}
-elseif(isset($_POST['submit'])){
-    createNew($_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['wallet']);
-    header('Location: ./login.php');
-    die();
-}
-else{
-	displayForm();
+checkForLogin();
+
+/**
+* This method checks for a loggedin session variable
+*/
+function checkForLogin(){
+    if(isset($_SESSION['loggedin'])){
+        header('Location: ./index.php');
+        die();
+    }
+    elseif(isset($_POST['submit'])){
+        createNew($_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['wallet']);
+        header('Location: ./login.php');
+        die();
+    }
+    else{
+        displayForm();
+    }
 }
 
+/**
+* This method grabs all entries from the create account form and inserts them into the database
+*
+* @param $email //users email to login
+* @param $oldpass //users password to be hashed into $newpass
+* @param $fname
+* @param $lname
+* @param $wallet //for now user can arbitrarily decide wallet size
+*/
 function createNew($email, $oldpass, $fname, $lname, $wallet){
     include './sql/configure.php';
     if(!$link){
@@ -21,9 +37,12 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
         die();
     }
     $newpass = hashSalt($oldpass);
-    mysqli_query($link, 'insert into customer values (null, "'.$email.'", "'.$newpass.'", "'.$fname.'", "'.$lname.'", "'.$wallet.'")');
+    mysqli_query($link, 'insert into customer values (null, "'.$newpass.'", "'.$email.'", "'.$fname.'", "'.$lname.'", "'.$wallet.'")');
 }
 
+/**
+* This method creates a create account form
+*/
 function displayForm(){
 	echo '
 	<form action="create.php" method="post">
@@ -35,6 +54,10 @@ function displayForm(){
 		<input type="submit" name="submit"></input>
 	</form>';
 }
+/**
+* This method changes $oldpass into a hashed and salted $newpass
+* Helper method of createNew()
+*/
 
 function hashSalt($oldpass){
     //cost is how much we care about security

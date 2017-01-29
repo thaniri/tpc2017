@@ -1,18 +1,28 @@
 <?php
 
 session_start();
+checkForLogin();
 
-if(isset($_SESSION['loggedin'])){
-	header('Location: ./index.php');
-    die();
-}
-elseif(isset($_POST['submit'])){
-    login($_POST['email'], $_POST['password']);
-}
-else{
-	displayForm();
+/**
+* This method checks for a loggedin session variable and redirects
+* This method deals with the submit button
+*/
+function checkForLogin(){
+	if(isset($_SESSION['loggedin'])){
+		header('Location: ./index.php');
+		die();
+	}
+	elseif(isset($_POST['submit'])){
+		login($_POST['email'], $_POST['password']);
+	}
+	else{
+		displayForm();
+	}
 }
 
+/**
+* This method creates a login form
+*/
 function displayForm(){
 	echo '
 	<form action="login.php" method="post">
@@ -22,6 +32,12 @@ function displayForm(){
 	</form>';
 }
 
+/**
+* This method takes the $_POST login details and checks them against the database
+*
+* @param $email
+* @param $password
+*/
 function login($email, $password){
 //logs a user in and sets $_SESSION variables
     include './sql/configure.php';
