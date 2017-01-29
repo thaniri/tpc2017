@@ -91,10 +91,7 @@ table {
 	float:left;
 	height:100%;
 	width:256px;
-	padding-bottom: 99999px;
-    margin-bottom: -99999px;
 	overflow: hidden;
-	display: inline-block;
 }
 
 #topNav{
@@ -112,6 +109,12 @@ table {
 	height:64px;
 }
 
+#centerNav{
+	display: flex;
+	flex-direction: column;
+	justify-content: initial;
+}
+
 #botNav{
 	border-top: 1px solid #e0e0e0;
 	text-align:center;
@@ -124,13 +127,13 @@ table {
 }
 
 #rightCol{
-	float:left;
+	float:right;
 	height:100%;
 	padding-bottom: 99999px;
     margin-bottom: -99999px;
+	margin-right:-256px;
 	overflow: hidden;
-	width:70%;
-	display: inline-block;
+	width:100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
