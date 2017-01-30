@@ -29,7 +29,7 @@ function displayForm(){
 		Email:<input type="textbox" name="email"></input><br/>
 		Password:<input type="textbox" name="password"></input><br/>
 		<input type="submit" name="submit"></input>
-		<p id="errors"></p>
+		<div id="inputErrors"></div>
 	</form>';
 }
 

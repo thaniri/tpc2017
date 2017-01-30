@@ -1,22 +1,74 @@
+/**
+ * This script is used on any page with user inputted forms.
+ * It is a first line of defence on injection attacks and on missed inputs
+ */
+
+
+/**
+ * This method validates any input against injections or emptiness
+ * 
+ * @param anInput
+ * 
+ * @return boolean
+ */
+function validateClientSide(anInput){
+    if(/\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b|<|>|^$/.test(anInput) == true){
+        document.getElementById("inputErrors").innerHTML = "Invalid Input";
+        return false;
+    }
+}
+/**
+ * This method validates the form found on login.php
+ * 
+ * @return boolean //false if injection or empty found
+ */
 function validateLogin(){
     var email = document.forms["loginForm"]["email"].value;
     var password = document.forms["loginForm"]["password"].value;
-    if(/<|>|;|(|)/.test(email) == true || email == ""){
-        document.getElementById("errors").innerHTML = "Invalid Input";
-        document.forms["loginForm"]["email"].focus();
+    if(validateClientSide(email) == false){
         return false;
     }
-    if(/<|>|;|(|)/.test(password) == true || password == ""){
-        document.getElementById("errors").innerHTML = "Invalid Input";
-        document.forms["loginForm"]["password"].focus();
+    if(validateClientSide(password) == false){
         return false;
     }
 }
 
+/**
+ * This method validates the form on create.php 
+ */
 function validateCreate(){
-
+    var email = document.forms["createForm"]["email"].value;
+    var password = document.forms["createForm"]["password"].value;
+    var fname = document.forms["createForm"]["fname"].value;
+    var lname = document.forms["createForm"]["lname"].value;
+    var wallet = document.forms["createForm"]["wallet"].value;
+    if(validateClientSide(email) == false){
+        return false;
+    }
+    if(validateClientSide(password) == false){
+        return false;
+    }
+    if(validateClientSide(fname) == false){
+        return false;
+    }
+    if(validateClientSide(lname) == false){
+        return false;
+    }
+    if(validateNumericOnly(wallet) == false){
+        return false;
+    }
 }
 
-function regexForm(){
-
+/**
+ * This method validates any input to be a number only
+ * 
+ * @param anInput
+ * 
+ * @return boolean //false if something is not a number
+ */
+function validateNumericOnly(anInput){
+    if(/^?[0-9]*$/.test(anInput) == true){
+        document.getElementById("inputErrors").innerHTML = "Invalid Input";
+        return false;
+    }
 }

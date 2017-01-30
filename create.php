@@ -6,6 +6,7 @@
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="icon" type="image/ico" href="images/logo.ico"/>
+		<script src="./scripts/validate.js"></script>
    </head>
     <body>
         <div id="leftCol">

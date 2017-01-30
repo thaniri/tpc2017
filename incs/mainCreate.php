@@ -45,13 +45,14 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
 */
 function displayForm(){
 	echo '
-	<form name="createForm" action="create.php" method="post">
+	<form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
 		Email:<input type="textbox" name="email"></input><br/>
 		Password:<input type="textbox" name="password"></input><br/>
         First Name:<input type="textbox" name="fname"></input><br/>
         Last Name:<input type="textbox" name="lname"></input><br/>
         Wallet:<input type="textbox" name="wallet"></input><br/>
 		<input type="submit" name="submit"></input>
+        <div id="inputErrors"></div>
 	</form>';
 }
 /**
