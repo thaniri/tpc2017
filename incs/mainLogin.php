@@ -9,11 +9,20 @@ checkForLogin();
 */
 function checkForLogin(){
 	if(isset($_SESSION['loggedin'])){
+		//if the user is already logged in redirect them to the homepage
 		header('Location: ./index.php');
 		die();
 	}
 	elseif(isset($_POST['submit'])){
-		login($_POST['email'], $_POST['password']);
+		include './sql/validateCrud.php';
+		if(validateServerSide($_POST['email'] == false) && validateServerSide($_POST['password'] == false)){
+			//if the submit button is pressed on the create account form, validate it and go ahead or display the form again
+			login($_POST['email'], $_POST['password']);
+		}
+		else{
+			displayForm();
+			echo 'Invalid Input';
+		}
 	}
 	else{
 		displayForm();

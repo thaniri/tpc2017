@@ -8,13 +8,23 @@ checkForLogin();
 */
 function checkForLogin(){
     if(isset($_SESSION['loggedin'])){
+        //if the user is logged in redirect to homepage
         header('Location: ./index.php');
         die();
     }
     elseif(isset($_POST['submit'])){
-        createNew($_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['wallet']);
-        header('Location: ./login.php');
-        die();
+        //if the submit button is pressed on the create account form, validate it and go ahead or display the form again
+        include './sql/validateCrud.php';
+        if(validateServerSide($_POST['email'] == false) && validateServerSide($_POST['password'] == false) && validateServerSide($_POST['fname'] == false) && validateServerSide($_POST['lname'] == false) && validateServerSide($_POST['wallet'] == false)){
+            //this giant logic is just checking every single input
+            createNew($_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['wallet']);
+            header('Location: ./login.php');
+            die();
+        }
+        else{
+            displayForm();
+            echo 'Invalid Inputs';
+        }
     }
     else{
         displayForm();
