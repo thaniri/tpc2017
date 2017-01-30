@@ -37,26 +37,17 @@ function validateLogin(){
  * This method validates the form on create.php 
  */
 function validateCreate(){
-    var email = document.forms["createForm"]["email"].value;
-    var password = document.forms["createForm"]["password"].value;
-    var fname = document.forms["createForm"]["fname"].value;
-    var lname = document.forms["createForm"]["lname"].value;
-    var wallet = document.forms["createForm"]["wallet"].value;
-    if(validateClientSide(email) == false){
-        return false;
-    }
-    if(validateClientSide(password) == false){
-        return false;
-    }
-    if(validateClientSide(fname) == false){
-        return false;
-    }
-    if(validateClientSide(lname) == false){
-        return false;
-    }
-    if(validateNumericOnly(wallet) == false){
-        return false;
-    }
+    var textInputs = [
+        email = document.forms["createForm"]["email"].value,
+        password = document.forms["createForm"]["password"].value,
+        fname = document.forms["createForm"]["fname"].value,
+        lname = document.forms["createForm"]["lname"].value
+    ];
+    var numberInputs = [
+       wallet = document.forms["createForm"]["wallet"].value
+    ];
+    textInputs.forEach(validateClientSide());
+    numberInputs.forEach(validateNumericOnly());
 }
 
 /**
