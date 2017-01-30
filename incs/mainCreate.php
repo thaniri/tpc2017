@@ -25,7 +25,7 @@ function checkForLogin(){
 * This method grabs all entries from the create account form and inserts them into the database
 *
 * @param $email //users email to login
-* @param $oldpass //users password to be hashed into $newpass
+* @param $oldpass //users password to be hashed into a new password
 * @param $fname
 * @param $lname
 * @param $wallet //for now user can arbitrarily decide wallet size
@@ -36,8 +36,8 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
         echo mysqli_connect_error();
         die();
     }
-    $newpass = hashSalt($oldpass);
-    mysqli_query($link, 'insert into customer values (null, "'.$newpass.'", "'.$email.'", "'.$fname.'", "'.$lname.'", "'.$wallet.'")');
+    $saltHash = hashSalt($oldpass);
+    mysqli_query($link, 'insert into customer values (null, "'.$saltHash[1].'", "'.$saltHash[0].'", "'.$email.'", "'.$fname.'", "'.$lname.'", "'.$wallet.'")');
 }
 
 /**
@@ -67,7 +67,8 @@ function hashSalt($oldpass){
     $salt = sprintf("$2a$%02d$", $cost) . $salt;
     //make a hash with the salt from above
     $hash = crypt($oldpass, $salt);
-    return $hash;
+    $saltHash = array($salt, $hash);
+    return $saltHash;
 }
 
 ?>
