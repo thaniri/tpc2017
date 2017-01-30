@@ -25,10 +25,11 @@ function checkForLogin(){
 */
 function displayForm(){
 	echo '
-	<form action="login.php" method="post">
+	<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
 		Email:<input type="textbox" name="email"></input><br/>
 		Password:<input type="textbox" name="password"></input><br/>
 		<input type="submit" name="submit"></input>
+		<p id="errors"></p>
 	</form>';
 }
 

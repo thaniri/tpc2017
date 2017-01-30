@@ -45,7 +45,7 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
 */
 function displayForm(){
 	echo '
-	<form action="create.php" method="post">
+	<form name="createForm" action="create.php" method="post">
 		Email:<input type="textbox" name="email"></input><br/>
 		Password:<input type="textbox" name="password"></input><br/>
         First Name:<input type="textbox" name="fname"></input><br/>
