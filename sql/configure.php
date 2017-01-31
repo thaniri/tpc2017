@@ -17,28 +17,28 @@ if ($link->query($books) === FALSE) {
 }
 
 //Each of these statements inserts a book into our "books" table
-$stmt = $conn -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
+$stmt = $link -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
 $stmt->bind_param("ssssssss", $isbn, $title, $author, $publisher, $year, $genre, $price, $bookCover);
 
 $isbn = "0747532699"; $title = "Harry Potter and the Philosopher's Stone"; $author = "J.K. Rowling"; $publisher = "Bloomsbury"; $year = "1997"; $genre = "Fantasy"; $price = "5.99"; $bookCover = "1";
 
 $stmt->execute();
 
-$stmt = $conn -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
+$stmt = $link -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
 $stmt->bind_param("ssssssss", $isbn, $title, $author, $publisher, $year, $genre, $price, $bookCover);
 
 $isbn = "7593237124"; $title = "Human Taxidermy: A Beginner's Guide"; $author = "Charles Waterton"; $publisher = "Charles Waterton"; $year = "2016"; $genre = "Nonfiction"; $price = "6.66"; $bookCover = "2";
 
 $stmt->execute();
 
-$stmt = $conn -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
+$stmt = $link -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
 $stmt->bind_param("ssssssss", $isbn, $title, $author, $publisher, $year, $genre, $price, $bookCover);
 
 $isbn = "0000000001"; $title = "Bible"; $author = "God"; $publisher = "God"; $year = "0001"; $genre = "Fiction"; $price = "10.00"; $bookCover = "3";
 
 $stmt->execute();
 
-$stmt = $conn -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
+$stmt = $link -> prepare ("INSERT INTO books (isbn, title, author, publisher, year, genre, price, bookCover) values (?,?,?,?,?,?,?,?)");
 $stmt->bind_param("ssssssss", $isbn, $title, $author, $publisher, $year, $genre, $price, $bookCover);
 
 $isbn = "0987122342"; $title = "A** Eating Made Simple"; $author = "Nancy Mohrbacher"; $publisher = "Kathleen Tackett & Co."; $year = "2016"; $genre = "Nonfiction"; $price = "0.69"; $bookCover = "4";
