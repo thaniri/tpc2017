@@ -12,7 +12,7 @@ $link = mysqli_connect($host, $user, $password, $database);
 $books = "CREATE TABLE IF NOT EXISTS books (isbn int(20) not null primary key, title 
 varchar(50), author varchar(50), publisher varchar(50), year int(4), genre varchar(50), price float(4), bookCover varchar(50))";
 
-if ($conn->query($books) === FALSE) {
+if ($link->query($books) === FALSE) {
 	echo "Error creating table: " . $conn->error;
 }
 
