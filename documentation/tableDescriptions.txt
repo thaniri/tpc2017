@@ -1,0 +1,68 @@
+mysql> desc customer;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| cID     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| cHash   | char(60)    | NO   |     | NULL    |                |
+| cSalt   | char(31)    | NO   |     | NULL    |                |
+| cEmail  | varchar(40) | NO   |     | NULL    |                |
+| cFname  | varchar(20) | NO   |     | NULL    |                |
+| cLname  | varchar(20) | NO   |     | NULL    |                |
+| cWallet | int(11)     | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+7 rows in set (0.03 sec)
+
+mysql> desc receipt;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| rID   | int(11) | NO   | PRI | NULL    | auto_increment |
+| cID   | int(11) | YES  |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.03 sec)
+
+mysql> desc receiptBook;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| rID   | int(11) | NO   | PRI | 0       |       |
+| bID   | int(11) | NO   | PRI | 0       |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.04 sec)
+
+mysql> desc book;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| bID    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| aID    | int(11)     | YES  |     | NULL    |                |
+| bTitle | varchar(40) | NO   |     | NULL    |                |
+| bPrice | double      | NO   |     | NULL    |                |
+| bQty   | int(11)     | NO   |     | NULL    |                |
+| pID    | int(11)     | YES  |     | NULL    |                |
+| bCover | varchar(30) | NO   |     | NULL    |                |
+| bGenre | varchar(20) | NO   |     | NULL    |                |
+| bYear  | char(4)     | NO   |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+9 rows in set (0.03 sec)
+
+mysql> desc publisher;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| pID      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| pName    | varchar(40) | NO   |     | NULL    |                |
+| pCountry | varchar(20) | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.04 sec)
+
+mysql> desc author;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| aID      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| aFname   | varchar(20) | NO   |     | NULL    |                |
+| aLname   | varchar(20) | NO   |     | NULL    |                |
+| aCountry | varchar(20) | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.03 sec)
