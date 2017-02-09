@@ -49,6 +49,10 @@ table {
 	border-spacing: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p, span, div{
+	color:#212121;
+}
+
 /*CLASSES START HERE*/
 
 .colourDemo{
@@ -85,11 +89,15 @@ table {
     background-color:#BBDEFB;
 }
 
+.textColourPrimary{
+	color:#212121;
+}
+
 /*IDS START HERE*/
 
 #leftCol{
 	float:left;
-	height:100%;
+	min-height:100vh;
 	width:256px;
 	overflow: hidden;
 }
@@ -97,6 +105,7 @@ table {
 #topNav{
 	border-bottom: 1px solid #e0e0e0;
 	text-align:center;
+	width:256px;
 }
 
 #topNav img{
@@ -110,16 +119,35 @@ table {
 }
 
 #centerNav{
-	display: flex;
-	flex-direction: column;
-	justify-content: initial;
+	width:256px;
+}
+
+#centerNav li{
+	padding:20px;
+}
+
+#centerNav a{
+	text-decoration: none;
+	color:#212121;
+}
+
+#centerNav li:hover{
+	background-color:#eee;
 }
 
 #botNav{
 	border-top: 1px solid #e0e0e0;
 	text-align:center;
-	position:relative;
+	position:fixed;
 	bottom:0px;
+	width:256px;
+}
+
+#botNav div{
+	font-size:75%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 #botNav, footer{
@@ -127,39 +155,30 @@ table {
 }
 
 #rightCol{
-	float:right;
-	height:100%;
-	padding-bottom: 99999px;
-    margin-bottom: -99999px;
-	margin-right:-256px;
 	overflow: hidden;
-	width:100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	
+	min-height:100vh;
 }
 
 /*DEFAULT TAG NAMES START HERE*/
 
-body, html{
-  height: 100%;
+main{
+	min-height:100vh;
+	border-left: 1px solid #e0e0e0;
+	background-color:#fafafa;
+}
+
+nav{
+	min-height:100vh;
+	position:fixed;
 }
 
 header{
 	background-color:#4CAF50;
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
-}
-
-nav{
-	border-right: 1px solid #e0e0e0;
-	min-height:100%;
-	box-sizing:border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	border-left: 1px solid #e0e0e0;
 }
 
 footer{
 	background-color:#4CAF50;
+	border-left: 1px solid #e0e0e0;
 }

@@ -8,15 +8,19 @@
 		<link rel="icon" type="image/ico" href="images/logo.ico"/>
    </head>
     <body>
-        <div id="leftCol">
-			<?php include 'incs/nav.php';?>
-		</div>
-		<div id="rightCol">
-			<?php 
-				include 'incs/header.php';
-				include 'incs/main.php';
-				include 'incs/footer.php';
-			?>
+        <div id="wrapper">
+			<div id="leftCol">
+				<?php include 'incs/nav.php';?>
+			</div>
+			<div id="rightCol">
+				<?php 
+					include 'incs/header.php';
+					echo '<main>';
+					include 'incs/main.php';
+					echo '</main>';
+					include 'incs/footer.php';
+				?>
+			</div>
 		</div>
     </body>
 </html>

@@ -13,7 +13,15 @@ echo'<nav>
 		</ul>
 	</div>
 	<div id="botNav">
-		<p>Text</p>
+		<div>
+			<span>
+				<p>Daniel Roberts • Lee Salviejo</p>
+			</span>
+			<span>
+				<p>Nawid Hamidi • Marek Slabicki</p>
+			</span>
+			<p>INFO 2413 Project</p>
+		</div>
 	</div>
 </nav>';
 ?>

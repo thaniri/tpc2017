@@ -14,7 +14,9 @@
 		<div id="rightCol">
 			<?php 
 				include 'incs/header.php';
+				echo '<main>';
 				include 'incs/mainStyleGuide.php';
+				echo '</main>';
 				include 'incs/footer.php';
 			?>
 		</div>
