@@ -1,0 +1,28 @@
+insert into book
+(bID, aID, bTitle, bPrice, bQty, pID, bCover, bGenre, bYear)
+values
+(null, 5, "A** Eating Made Simple", 15, 27, 3, "eatingMadeSimple.jpeg", "Comedy", 2016),
+(null, 4, "Harry Potter and the Philosopher's Stone", 9, 33, 9, "philospherStone.jpeg", "Fantasy", 2001),
+(null, 6, "Human Taxidermy: A Beginner's Guide", 1, 1000, 9, "humanTaxidermy.jpeg", "Comedy", 2016),
+(null, 3, "The Art of War", 10, 40, 7, "artOfWar.jpeg", "Strategy", -512),
+(null, 7, "Zen and the Art of Motorcycle Maintenance", 20, 15, 3, "zenMotor.jpeg", "Philosophy", 1974),
+(null, 8, "Gödel, Escher, Bach", 30, 99, 3, "GEB.jpeg", "Science", 1979),
+(null, 9, "A Game of Thrones", 15, 30000, 3, "agot.jpeg", "Fantasy", 1996),
+(null, 10, "Amazing Spider-Man", 7000, 2, 3, "spiderMan.jpeg", "Fantasy", 1963),
+(null, 11, "Playing to Win: Becoming the Champion", 0, 9999999, 3, "playingToWin.jpeg", "Philosophy", 2005),
+(null, 12, "The Art of Learning", 20, 3, 3, "artOfLearning.jpeg", "Philosphy", 2007),
+(null, 13, "The Brothers Karamazov", 40, 900, 6, "brosKara.jpeg", "Fantasy", 1880),
+(null, 14, "Republic", 10, 5, 4, "republic.jpeg", "Philosophy", -380),
+(null, 15, "EveryDayCook", 40, 143, 3, "everyDayCook.jpeg", "How-To", 2016),
+(null, 16, "Asterix", 20, 20, 1, "asterix.jpeg", "Fantasy", 1959),
+(null, 17, "Redwall", 13, 1, 9, "redwall.jpeg", "Fantasy", 1999),
+(null, 18, "Knights of the Black and White", 20, 20, 2, "kobaw.jpeg", "Fantasy", 2006),
+(null, 19, "Animal Farm", 30, 30, 9, "animalFarm.jpeg", "Philosophy", 1945),
+(null, 20, "The Anarchist Cookbook", 1, 100, 3, "anarchy.jpeg", "How-To", 1971),
+(null, 21, "Pro Git", 90, 4, 3, "proGit.jpeg", "How-To", 2009),
+(null, 22, "Java: The Complete Reference", 180, 100, 3, "java.jpeg", "Science", 2013),
+(null, 23, "The Metamorphosis", 99, 13, 10, "metamorphosis.jpeg", "Philosophy", 1915),
+(null, 24, "The Psychology of Doping in Sport", 100, 2, 4, "dopingSport.jpeg", "Science", 2015),
+(null, 25, "The Way of the Fight", 30, 30, 2, "wayOfFight.jpeg", "Philsophy", 2013),
+(null, 26, "The Stranger", 50, 48, 1, "stranger.jpeg", "Philosophy", 1942),
+(null, 27, "All About A's", 1, 1000, 3, "aaa.jpeg", "Comedy", 2014);
