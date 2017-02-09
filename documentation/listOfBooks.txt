@@ -13,7 +13,7 @@ Republic, Plato
 EveryDayCook, Alton Brown
 Asterix, Rene Goscinny
 Redwall, Brian Jacques
-Brian Jacques, Jack Whyte
+Knights of the Black and White, Jack Whyte
 Animal Farm, George Orwell
 The Anarchist Cookbook, William Powell
 Pro Git, Scott Chacon

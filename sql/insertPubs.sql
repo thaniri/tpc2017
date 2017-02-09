@@ -10,4 +10,4 @@ values
 (null, "Chinese Publisher", "China"),
 (null, "Cambodian Publisher", "Cambodia"),
 (null, "English Publisher", "England"),
-(null, "Czech Publisher", "Czech Republic"),
+(null, "Czech Publisher", "Czech Republic");
