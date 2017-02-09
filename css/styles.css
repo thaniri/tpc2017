@@ -64,10 +64,13 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 }
 
 .largeContent{
+	position:relative;
 	min-height:50vh;
 	width:75%;
 	margin-left:auto;
 	margin-right:auto;
+	background-color:#fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,.26);
 }
 
 .smallContent{
@@ -75,6 +78,8 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 	width:25%;
 	margin-left:auto;
 	margin-right:auto;
+	background-color:#fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,.26);
 }
 
 /*COLOURS START HERE*/
@@ -179,6 +184,7 @@ main{
 	min-height:100vh;
 	border-left: 1px solid #e0e0e0;
 	background-color:#fafafa;
+	padding:20px;
 }
 
 nav{

@@ -7,6 +7,7 @@ checkForLogin();
 * This method checks for a loggedin session variable and redirects
 * This method deals with the submit button
 */
+
 function checkForLogin(){
 	if(isset($_SESSION['loggedin'])){
 		//if the user is already logged in redirect them to the homepage
@@ -20,8 +21,7 @@ function checkForLogin(){
 			login($_POST['email'], $_POST['password']);
 		}
 		else{
-			displayForm();
-			echo 'Invalid Input';
+			displayFormInvalid();
 		}
 	}
 	else{
@@ -33,13 +33,29 @@ function checkForLogin(){
 * This method creates a login form
 */
 function displayForm(){
-	echo '
-	<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
-		Email:<input type="textbox" name="email"></input><br/>
-		Password:<input type="textbox" name="password"></input><br/>
-		<input type="submit" name="submit"></input>
-		<div id="inputErrors"></div>
-	</form>';
+	echo '<div class="largeContent">
+		<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
+			Email:<input type="textbox" name="email"></input><br/>
+			Password:<input type="textbox" name="password"></input><br/>
+			<input type="submit" name="submit"></input>
+			<div id="inputErrors"></div>
+		</form>
+	</div>';
+}
+
+/**
+* This method makes a form after an invalid input has been detected
+*/
+function displayFormInvalid(){
+	echo '<div class="largeContent">
+		<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
+			Email:<input type="textbox" name="email"></input><br/>
+			Password:<input type="textbox" name="password"></input><br/>
+			<input type="submit" name="submit"></input>
+			<div id="inputErrors"></div>
+		</form>
+		<p class="errorMessage">Invalid Input</p>
+	</div>';
 }
 
 /**
@@ -65,8 +81,7 @@ function login($email, $password){
 		die();
 	}
 	else{
-		displayForm();
-		echo 'wrong user or password';
+		displayFormInvalid();
 	}
 }
 

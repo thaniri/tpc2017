@@ -22,8 +22,7 @@ function checkForLogin(){
             die();
         }
         else{
-            displayForm();
-            echo 'Invalid Inputs';
+            displayFormInvalid();
         }
     }
     else{
@@ -55,15 +54,33 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
 */
 function displayForm(){
 	echo '
-	<form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
-		Email:<input type="textbox" name="email"></input><br/>
-		Password:<input type="textbox" name="password"></input><br/>
-        First Name:<input type="textbox" name="fname"></input><br/>
-        Last Name:<input type="textbox" name="lname"></input><br/>
-        Wallet:<input type="textbox" name="wallet"></input><br/>
-		<input type="submit" name="submit"></input>
-        <div id="inputErrors"></div>
-	</form>';
+    <div class="largeContent">
+        <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
+            Email:<input type="textbox" name="email"></input><br/>
+            Password:<input type="textbox" name="password"></input><br/>
+            First Name:<input type="textbox" name="fname"></input><br/>
+            Last Name:<input type="textbox" name="lname"></input><br/>
+            Wallet:<input type="textbox" name="wallet"></input><br/>
+            <input type="submit" name="submit"></input>
+            <div id="inputErrors"></div>
+        </form>
+    </div>';
+}
+
+function displayFormInvalid(){
+    echo '
+    <div class="largeContent">
+        <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
+            Email:<input type="textbox" name="email"></input><br/>
+            Password:<input type="textbox" name="password"></input><br/>
+            First Name:<input type="textbox" name="fname"></input><br/>
+            Last Name:<input type="textbox" name="lname"></input><br/>
+            Wallet:<input type="textbox" name="wallet"></input><br/>
+            <input type="submit" name="submit"></input>
+            <div id="inputErrors"></div>
+        </form>
+        <p class="errorMessage">Invalid Input</p>
+    </div>';
 }
 /**
 * This method changes $oldpass into a hashed and salted $newpass
