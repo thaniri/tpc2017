@@ -1,7 +1,12 @@
 <?php
 
-$title = $_SERVER['PHP_SELF'];
+createHeader();
 
+/**
+* This function grabs whatever is in the <title> tag of a page
+* http://stackoverflow.com/questions/3031973/get-current-page-url-and-title-in-wordpress
+* http://stackoverflow.com/questions/399332/fastest-way-to-retrieve-a-title-in-php
+*/
 function page_title($url) {
 	$fp = file_get_contents($url);
 	if (!$fp) 
@@ -11,16 +16,19 @@ function page_title($url) {
 	if (!$res) 
 		return null; 
 
-	// Clean up title: remove EOL's and excessive whitespace.
 	$title = preg_replace('/\s+/', ' ', $title_matches[1]);
 	$title = trim($title);
 	return $title;
 }
 
-//$title = page_title($_SERVER['PHP_SELF']);
-	
-echo'<header><h1>'
-. $title . 
-'</h1></header>';
+/**
+* This function creates the header
+*/
+function createHeader(){
+	$title = $_SERVER['PHP_SELF'];
+	echo'<header><h1>'
+		. $title .
+		'</h1></header>';
+}
 
 ?>

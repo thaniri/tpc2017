@@ -5,11 +5,11 @@ echo'<nav>
 	</div>
 	<div id="centerNav">
 		<ul>
-			<li><a href="./index.php">Home</a></li>
-			<li><a href="./styleguide.php">Style Guide</a></li>
-			<li><a href="./login.php">Login</a></li>
-			<li><a href="./logout.php">Logout</a></li>
-			<li><a href="./create.php">Create</a></li>
+			<a href="./index.php"><li>Home</li></a>
+			<a href="./styleguide.php"><li>Style Guide</li></a>
+			<a href="./login.php"><li>Login</li></a>
+			<a href="./logout.php"><li>Logout</li></a>
+			<a href="./create.php"><li>Create</li></a>
 		</ul>
 	</div>
 	<div id="botNav">
