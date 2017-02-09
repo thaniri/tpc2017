@@ -74,11 +74,16 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
 }
 
+.smallContentRow{
+	display:flex;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 .smallContent{
 	min-height:10vh;
 	width:25%;
-	margin-left:auto;
-	margin-right:auto;
+	margin:10px;
 	background-color:#fff;
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
 }
