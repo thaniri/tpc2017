@@ -1,5 +1,8 @@
 <?php
-
+error_reporting(0);
+//error reporting needs to be here for the second session session_start
+//this second session start needs to be here in order to echo the usenername into the header
+session_start();
 createHeader();
 
 /**
@@ -8,6 +11,7 @@ createHeader();
 * http://stackoverflow.com/questions/399332/fastest-way-to-retrieve-a-title-in-php
 */
 function page_title($url) {
+	//i want to do a page_title($_SERVER['PHP_SELF']);)
 	$fp = file_get_contents($url);
 	if (!$fp) 
 		return null;
@@ -26,9 +30,22 @@ function page_title($url) {
 */
 function createHeader(){
 	$title = $_SERVER['PHP_SELF'];
-	echo'<header><h1>'
-		. $title .
-		'</h1></header>';
+
+	if(isset($_SESSION['loggedin'])){
+		//if the user is already logged include their username in the header
+		echo'<header>
+			<h1>'. $title . $_SESSION['email'] . '</h1>
+			<div class="username">Hi '. $_SESSION['email'] .', <a href="./logout.php">Logout</a></div>
+		</header>';
+	}
+	else{
+		echo'<header>
+			<h1>'. $title . '</h1>
+			<span class="username"><a href="./login.php">Login</a> | <a href="./create.php">Create Account</a></span>
+		</header>';
+	}
+
+	
 }
 
 ?>

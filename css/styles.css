@@ -83,11 +83,26 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 
 .smallContent{
 	min-height:10vh;
-	width:25%;
 	margin:10px;
 	padding:10px;
 	background-color:#fff;
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
+	width:256px;
+}
+
+.username{
+	position:absolute;
+	right:20px;
+	color:#fff;
+	font-size:110%;
+}
+
+.username a{
+	color:#fff;
+}
+
+.username a:hover{
+	color:#eee;
 }
 
 /*COLOURS START HERE*/

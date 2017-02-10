@@ -5,11 +5,7 @@ echo'<nav>
 	</div>
 	<div id="centerNav">
 		<ul>
-			<a href="./index.php"><li>Home</li></a>
 			<a href="./styleguide.php"><li>Style Guide</li></a>
-			<a href="./login.php"><li>Login</li></a>
-			<a href="./logout.php"><li>Logout</li></a>
-			<a href="./create.php"><li>Create</li></a>
 			<a href="./shop.php"><li>Shop</li></a>
 		</ul>
 	</div>
