@@ -288,11 +288,21 @@ footer h2{
 @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape){
 
 }
-
+	#menuIcon{
+		display:none;
+	}
 /* desktop-medium */
 /*sidebar disappears*/
 @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3){
-
+	header{
+		background-color:red;
+	}
+	#leftCol, nav{
+		display:none;
+	}
+	#menuIcon{
+		display:initial;
+	}
 }
 
 /* desktop-large */
