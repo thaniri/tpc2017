@@ -245,3 +245,61 @@ footer h2{
 	transform: translateY(-50%);
 	padding-left:20px;
 }
+
+/* BREAKPOINTS START HERE */
+
+/* mobile-small */
+@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait){
+
+}
+
+/* mobile-large */
+@media all and (min-width: 361px) and (orientation: portrait){
+
+}
+
+/* mobile-small-landscape */
+@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape){
+
+}
+
+/* mobile-large-landscape */
+@media all and (min-width: 481px) and (orientation: landscape){
+
+}
+
+/* tabletlandscape */
+@media all and (min-width: 961px) and (orientation: landscape){
+
+}
+
+/* tablet */
+@media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait){
+	
+}
+
+/* desktop-small */
+@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3){
+
+}
+
+/* desktop-medium-landscape */
+/*sidebar disappears*/
+@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape){
+
+}
+
+/* desktop-medium */
+/*sidebar disappears*/
+@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3){
+
+}
+
+/* desktop-large */
+@media all and (min-width: 1281px) and (max-width: 1600px){
+
+}
+
+/* desktop-xlarge */
+@media all and (min-width: 1601px) and (max-width: 1920px){
+}
