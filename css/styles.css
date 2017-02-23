@@ -201,6 +201,18 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 	min-height:100vh;
 }
 
+#menuIcon{
+		display:initial;
+		padding-left:10px;
+		padding-right:10px;
+		margin:0px;
+		margin-top:10px;
+		float:left;
+		background:none;
+		border:none;
+		fill:#fff;
+}
+
 /*DEFAULT TAG NAMES START HERE*/
 
 main{
@@ -250,66 +262,58 @@ footer h2{
 
 /* mobile-small */
 @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait){
-
+	#leftCol, nav{
+		display:none;
+	}
 }
 
 /* mobile-large */
 @media all and (min-width: 361px) and (orientation: portrait){
-
-}
-
-/* mobile-small-landscape */
-@media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape){
-
-}
-
-/* mobile-large-landscape */
-@media all and (min-width: 481px) and (orientation: landscape){
-
-}
-
-/* tabletlandscape */
-@media all and (min-width: 961px) and (orientation: landscape){
-
+	#leftCol, nav{
+		display:none;
+	}
 }
 
 /* tablet */
 @media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait){
-	
+	#leftCol, nav{
+		display:none;
+	}
 }
 
 /* desktop-small */
-@media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3){
-
+@media all and (min-width: 481px) and (max-width: 840px){
+	#leftCol, nav{
+		display:none;
+	}
 }
 
 /* desktop-medium-landscape */
 /*sidebar disappears*/
 @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape){
-
-}
-	#menuIcon{
-		display:none;
-	}
-/* desktop-medium */
-/*sidebar disappears*/
-@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3){
-	header{
-		background-color:red;
-	}
 	#leftCol, nav{
 		display:none;
 	}
-	#menuIcon{
-		display:initial;
+}
+	
+/* desktop-medium */
+/*sidebar disappears*/
+@media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3){
+	#leftCol, nav{
+		display:none;
 	}
 }
 
 /* desktop-large */
 @media all and (min-width: 1281px) and (max-width: 1600px){
-
+	#menuIcon{
+		display:none;
+	}
 }
 
 /* desktop-xlarge */
 @media all and (min-width: 1601px) and (max-width: 1920px){
+	#menuIcon{
+		display:none;
+	}
 }
