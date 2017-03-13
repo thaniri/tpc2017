@@ -7,7 +7,6 @@ if (isset($_SESSION['loggedin'])){
 }
 else{
 	echo '<br/>not logged in';
-	echo '<button id="menuIcon" onclick="myTest()"><img src="./images/icons/ic_menu_black_24px.svg"/></button>';
 }
 echo '</div>'
 
