@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script src="scripts/toggleMenu.js"></script>
 		<link rel="icon" type="image/ico" href="images/logo.ico"/>
    </head>
     <body>

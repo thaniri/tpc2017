@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-//error reporting needs to be here for the second session session_start
+//error reporting needs to be 0 here for the second session session_start
 //this second session start needs to be here in order to echo the usenername into the header
 session_start();
 createHeader();
@@ -34,7 +34,7 @@ function createHeader(){
 	if(isset($_SESSION['loggedin'])){
 		//if the user is already logged include their username in the header
 		echo'<header>
-			<button id="menuIcon"><img id="menuIcon" src="./images/icons/ic_menu_black_24px.svg"/></button> 
+			<button id="menuIcon" onclick="myTest()"><img src="./images/icons/ic_menu_black_24px.svg"/></button> 
 			<h1>'. $title . '</h1>
 			<div class="username">Hi '. $_SESSION['email'] .', <a href="./logout.php">Logout</a></div>
 		</header>';
@@ -46,8 +46,6 @@ function createHeader(){
 			<span class="username"><a href="./login.php">Login</a> | <a href="./create.php">Create Account</a></span>
 		</header>';
 	}
-
-	
 }
 
 ?>
