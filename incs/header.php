@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 //error reporting needs to be 0 here for the second session session_start
 //this second session start needs to be here in order to echo the usenername into the header
 session_start();
