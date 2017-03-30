@@ -8,6 +8,7 @@ echo'<nav>
 			<a href="./styleguide.php"><li>Style Guide</li></a>
 			<a href="./shop.php"><li>Shop</li></a>
 			<a href="./cart.php"><li>Cart</li></a>
+			<a href="./about.php"><li>About</li></a>
 		</ul>
 	</div>
 	<div id="botNav">
