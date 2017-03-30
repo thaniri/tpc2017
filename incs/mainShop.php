@@ -35,7 +35,7 @@ function displayBookResults($link){
 * This function adds a selected book to a users cookies for use in the shopping cart
 */
 function addToCartCookie(){
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit']) && isset($_SESSION['loggedin'])){
         if(isset($_COOKIE['cart'])){
             setcookie('cart', $_COOKIE['cart'] . ';' . $_POST['hidden'], time()+60*60);
         }
