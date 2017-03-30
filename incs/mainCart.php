@@ -90,13 +90,11 @@ function purchaseCartContents($link){
     if(isset($_POST['purchase'])){
         //$link->begin_transaction();
         createReceipt($link, $dt);
-        $rID = mysqli_query($link, 'select rID from receipt where cID = "'. findUserID($link) .'" and rDate = "' . $dt .'"')->fetch_array(); //attempting to find
+        $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
         $myArr = splitCookie($_COOKIE['cart']);
         for($i = 0; $i < count($myArr); $i++){
             mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
-            mysqli_query($link, 'insert into receiptBook (rID, bID) values ( ' . $rID . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
-            //the problem is with finding $rID, it works it you just substitute in a number
-            //mysqli_query($link, 'insert into receiptBook (rID, bID) values (26, (select bID from book where bTitle = "'. $myArr[$i] .'"))');
+            mysqli_query($link, 'insert into receiptBook (rID, bID) values ( ' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
         }
         //$link->commit();
         setcookie('cart', '1', -1);
