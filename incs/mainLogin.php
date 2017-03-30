@@ -7,7 +7,6 @@ checkForLogin();
 * This method checks for a loggedin session variable and redirects
 * This method deals with the submit button
 */
-
 function checkForLogin(){
 	if(isset($_SESSION['loggedin'])){
 		//if the user is already logged in redirect them to the homepage
