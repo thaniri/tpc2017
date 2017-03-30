@@ -86,17 +86,19 @@ function clearCart(){
 function purchaseCartContents($link){
     $currentTime = getdate()[0];
 	$dt = new DateTime("@$currentTime");
-    $dt = $dt->format('Y-m-d H:i:s');
-    $rID = mysqli_query($link, 'select rID from receipt where cID = "'. findUserID($link) .'" and rDate = "' . $dt .'"')->fetch_array();
+    $dt = $dt->format('Y-m-d H:i:s'); //this is the date in a mysql friendly format
     if(isset($_POST['purchase'])){
-        $link->begin_transaction();
+        //$link->begin_transaction();
         createReceipt($link, $dt);
+        $rID = mysqli_query($link, 'select rID from receipt where cID = "'. findUserID($link) .'" and rDate = "' . $dt .'"')->fetch_array(); //attempting to find
         $myArr = splitCookie($_COOKIE['cart']);
         for($i = 0; $i < count($myArr); $i++){
             mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
-            mysqli_query($link, 'insert into receiptBook (rID, bID) values (22, (select bID from book where bTitle = "'. $myArr[$i] .'"))');
+            mysqli_query($link, 'insert into receiptBook (rID, bID) values ( ' . $rID . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
+            //the problem is with finding $rID, it works it you just substitute in a number
+            //mysqli_query($link, 'insert into receiptBook (rID, bID) values (26, (select bID from book where bTitle = "'. $myArr[$i] .'"))');
         }
-        $link->commit();
+        //$link->commit();
         setcookie('cart', '1', -1);
         header("Refresh:0");
     }
