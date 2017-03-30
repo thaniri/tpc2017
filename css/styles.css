@@ -82,6 +82,7 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 }
 
 .smallContent{
+	display:inline-block;
 	min-height:10vh;
 	margin:10px;
 	padding:10px;
@@ -204,7 +205,7 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 #menuIcon{
 		display:initial;
 		padding-left:10px;
-		padding-right:10px;
+		padding-right:10px;		
 		margin:0px;
 		margin-top:10px;
 		float:left;
