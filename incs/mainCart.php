@@ -18,10 +18,11 @@
 function displayCart($link){
     echo '<div class="largeContent">';
         if(isset($_SESSION['loggedin'])){
-            $titles = splitCookie($_COOKIE['cart']);
-            for($i = 0; $i < count($titles); $i++){
-                showCartContents($link, $titles[$i]);
-            }
+            if(isset($_COOKIE['cart']) && isset($_COOKIE['cartPrice'])){
+                $titles = splitCookie($_COOKIE['cart']);
+                for($i = 0; $i < count($titles); $i++){
+                    showCartContents($link, $titles[$i]);
+                }
             echo 'Your total is: $' . cartTotal();
             echo '<form method="post" action="cart.php">
                     <input type="submit" name="purchase" value="Purchase"></input>
@@ -29,6 +30,10 @@ function displayCart($link){
             echo '<form method="post" action="cart.php">
                     <input type="submit" name="clearCart" value="Clear Cart"></input>
                 </form>';
+            }
+            else{
+                echo 'You have nothing in your cart!';
+            }
         }
         else{
             echo 'Not logged in';
@@ -118,7 +123,7 @@ function purchaseCartContents($link){
         $link->commit();
         setcookie('cart', '1', time()-1);
         setcookie('cartPrice', '1', time()-1);
-        //header("Refresh:0"); this should probably redirect to a receipt page
+        header("Location: ./receipt.php");
     }
 }
 
