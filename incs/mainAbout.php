@@ -1,5 +1,10 @@
 <?php
 echo '<div class="largeContent">
-hi my name is daniel
-</div>';
+            <div class="insideLargeContent">
+                <h1>The team:</h1>
+                <p>asdf</p>
+
+
+            </div>
+        </div>';
 ?>

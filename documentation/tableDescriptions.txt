@@ -13,12 +13,13 @@ mysql> desc customer;
 7 rows in set (0.03 sec)
 
 mysql> desc receipt;
-+-------+---------+------+-----+---------+----------------+
-| Field | Type    | Null | Key | Default | Extra          |
-+-------+---------+------+-----+---------+----------------+
-| rID   | int(11) | NO   | PRI | NULL    | auto_increment |
-| cID   | int(11) | YES  |     | NULL    |                |
-+-------+---------+------+-----+---------+----------------+
++-------+----------+------+-----+---------+----------------+
+| Field | Type     | Null | Key | Default | Extra          |
++-------+----------+------+-----+---------+----------------+
+| rID   | int(11)  | NO   | PRI | NULL    | auto_increment |
+| cID   | int(11)  | YES  |     | NULL    |                |
+| rDate | datetime | YES  |     | NULL    |                |
++-------+----------+------+-----+---------+----------------+
 2 rows in set (0.03 sec)
 
 mysql> desc receiptBook;

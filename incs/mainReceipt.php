@@ -22,6 +22,9 @@ function findUserID($link){
     }
 }
 
+/**
+* This function prints out all the purchases made by a user.
+*/
 function displayPastPurchases($link){
     $cID = findUserID($link);
     $result = mysqli_query($link, 'select receipt.rDate, book.bTitle, book.bCover from receipt join receiptBook on receipt.rID = receiptBook.rID join book on receiptBook.bID = book.bID where cID = ' . $cID . ';');
@@ -32,7 +35,6 @@ function displayPastPurchases($link){
             . '</div>';
         }
     }
-
 }
 
 ?>

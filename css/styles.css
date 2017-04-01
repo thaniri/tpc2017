@@ -54,6 +54,39 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 	color:#212121;
 }
 
+h1{
+	font-size:34px;
+	font-weight:400;
+	line-height:20px;
+}
+
+h2{
+	font-size:24px;
+	font-weight:400;
+	line-height:16px;
+}
+
+h3{
+	font-size:20px;
+	font-weight:500;
+	line-height:1;
+}
+
+p{
+	font-size:14px;
+	font-weight:500;
+	line-height:16px;
+	margin-bottom:8px;
+	opacity:0.87;
+}
+
+button {
+	border:none;
+	box-sizing:none;
+	background:none;
+	cursor:pointer;
+}
+
 /*CLASSES START HERE*/
 
 .colourDemo{
@@ -73,6 +106,15 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 	background-color:#fff;
 	box-shadow: 0 2px 5px rgba(0,0,0,.26);
 	padding:10px;
+}
+
+.insideLargeContent{
+	padding:0px 80px 0px 80px;
+}
+
+.largeContent h1, h2{
+	margin-bottom:30px;
+	margin-top:30px;
 }
 
 .smallContentRow{
@@ -213,6 +255,14 @@ h1, h2, h3, h4, h5, h6, p, span, div{
 		border:none;
 		fill:#fff;
 		cursor:pointer;
+}
+
+#scrollUp{
+	position: relative;
+	float:left;
+	margin-left:20px;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 /*DEFAULT TAG NAMES START HERE*/

@@ -34,14 +34,14 @@ function createHeader(){
 	if(isset($_SESSION['loggedin'])){
 		//if the user is already logged include their username in the header
 		echo'<header>
-			<button id="menuIcon" onclick="myTest()"><img src="./images/icons/ic_menu_black_24px.svg"/></button> 
+			<button id="menuIcon" onclick="toggleMenu()"><img src="./images/icons/hamburger.png"/></button> 
 			<h1>'. $title . '</h1>
 			<div class="username">Hi '. $_SESSION['email'] .', <a href="./logout.php">Logout</a></div>
 		</header>';
 	}
 	else{
 		echo'<header>
-			<button id="menuIcon" onclick="myTest()"><img src="./images/icons/ic_menu_black_24px.svg"/></button>
+			<button id="menuIcon" onclick="toggleMenu()"><img src="./images/icons/hamburger.png"/></button>
 			<h1>'. $title . '</h1>
 			<span class="username"><a href="./login.php">Login</a> | <a href="./create.php">Create Account</a></span>
 		</header>';

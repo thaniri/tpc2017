@@ -1,6 +1,6 @@
 <?php
 echo'<footer>
-		<h2>There is usually text in the footer.</h2>
-		<script src="scripts/toggleMenu.js"></script>
+		<button id="scrollUp" onclick="scrollUp()"><img src="./images/icons/upArrow.png"></img></button>
+		<script src="scripts/buttons.js"></script>
 	</footer>';
 ?>
