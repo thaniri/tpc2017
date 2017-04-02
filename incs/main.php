@@ -1,19 +1,13 @@
 <?php
 session_start();
 
-echo '<div class="largeContent">';
- include './sql/configure.php';
-    if(!$link){
-        echo mysqli_connect_error();
-        die();
-    }
+echo '<div class="largeContent"><div class="insideLargeContent">';
 if (isset($_SESSION['loggedin'])){
-	echo 'hi';
+	echo '<p>Welcome to TPC 2017</p>';
 }
 else{
-	echo '<br/>not logged in';
+	echo '<p>not logged in</p>';
 }
-echo '</div>'
-
+echo '</div></div>'
 
 ?>

@@ -16,14 +16,15 @@
 * @param $link the handler to connect to the database
 */
 function displayCart($link){
-    echo '<div class="largeContent">';
+    echo '<div class="largeContent">
+    <div class="insideLargeContent">';
         if(isset($_SESSION['loggedin'])){
             if(isset($_COOKIE['cart']) && isset($_COOKIE['cartPrice'])){
                 $titles = splitCookie($_COOKIE['cart']);
                 for($i = 0; $i < count($titles); $i++){
                     showCartContents($link, $titles[$i]);
                 }
-            echo 'Your total is: $' . cartTotal();
+            echo '<p>Your total is: $' . cartTotal() . '</p>';
             echo '<form method="post" action="cart.php">
                     <input type="submit" name="purchase" value="Purchase"></input>
                 </form>';
@@ -32,13 +33,14 @@ function displayCart($link){
                 </form>';
             }
             else{
-                echo 'You have nothing in your cart!';
+                echo '<p>You have nothing in your cart!</p>';
             }
         }
         else{
-            echo 'Not logged in';
+            echo '<p>Not logged in</p>';
         }
-    echo '</div>';
+    echo '</div>
+    </div>';
 }
 
 /**

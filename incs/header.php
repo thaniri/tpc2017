@@ -2,8 +2,13 @@
 //error_reporting(0);
 //error reporting needs to be 0 here for the second session session_start
 //this second session start needs to be here in order to echo the usenername into the header
-session_start();
-createHeader();
+	session_start();
+	include './sql/configure.php';
+    if(!$link){
+        echo mysqli_connect_error();
+        die();
+    }
+	createHeader();
 
 /**
 * This function grabs whatever is in the <title> tag of a page
@@ -35,17 +40,16 @@ function createHeader(){
 		//if the user is already logged include their username in the header
 		echo'<header>
 			<button id="menuIcon" onclick="toggleMenu()"><img src="./images/icons/hamburger.png"/></button> 
-			<h1>'. $title . '</h1>
+			<h1>'. $title .  '</h1>
 			<div class="username">Hi '. $_SESSION['email'] .', <a href="./logout.php">Logout</a></div>
 		</header>';
 	}
 	else{
 		echo'<header>
 			<button id="menuIcon" onclick="toggleMenu()"><img src="./images/icons/hamburger.png"/></button>
-			<h1>'. $title . '</h1>
+			<h1>'. $title . dispayCustomerWallet($link) .  '</h1>
 			<span class="username"><a href="./login.php">Login</a> | <a href="./create.php">Create Account</a></span>
 		</header>';
 	}
 }
-
 ?>

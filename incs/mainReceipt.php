@@ -26,15 +26,25 @@ function findUserID($link){
 * This function prints out all the purchases made by a user.
 */
 function displayPastPurchases($link){
-    $cID = findUserID($link);
-    $result = mysqli_query($link, 'select receipt.rDate, book.bTitle, book.bCover from receipt join receiptBook on receipt.rID = receiptBook.rID join book on receiptBook.bID = book.bID where cID = ' . $cID . ';');
-     if($result->num_rows > 0){
-        while($row = $result->fetch_array()){
-            echo '<div class="smallContent">' . 
-                $row["rDate"] . ' ' . $row["bTitle"] . '<img src="./images/bookCovers/' . $row["bCover"] . '"></img>'
-            . '</div>';
+    if(isset($_SESSION['loggedin'])){
+        $cID = findUserID($link);
+        $result = mysqli_query($link, 'select receipt.rDate, book.bTitle, book.bCover, book.bPrice from receipt join receiptBook on receipt.rID = receiptBook.rID join book on receiptBook.bID = book.bID where cID = ' . $cID . ';');
+        if($result->num_rows > 0){
+            while($row = $result->fetch_array()){
+                echo '<div class="smallContent">' . 
+                    $row["rDate"] . 
+                    '<br/>' . $row["bTitle"] . 
+                    '<br/><img src="./images/bookCovers/' . $row["bCover"] . '"></img>
+                    <br/>Price: $'. $row["bPrice"] . '</div>';
+            }
         }
     }
+    else{
+        echo '<div class="largeContent">
+            <div class="insideLargeContent">
+                <p>You are not logged in!</p>
+            </div>
+        </div>';
+    }
 }
-
 ?>
