@@ -57,7 +57,7 @@ function displayForm(){
     <div class="largeContent">
         <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
             Email:<input type="textbox" name="email"></input><br/>
-            Password:<input type="textbox" name="password"></input><br/>
+            Password:<input type="password" name="password"></input><br/>
             First Name:<input type="textbox" name="fname"></input><br/>
             Last Name:<input type="textbox" name="lname"></input><br/>
             Wallet:<input type="textbox" name="wallet"></input><br/>

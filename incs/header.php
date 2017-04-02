@@ -47,7 +47,7 @@ function createHeader(){
 	else{
 		echo'<header>
 			<button id="menuIcon" onclick="toggleMenu()"><img src="./images/icons/hamburger.png"/></button>
-			<h1>'. $title . dispayCustomerWallet($link) .  '</h1>
+			<h1>'. $title .  '</h1>
 			<span class="username"><a href="./login.php">Login</a> | <a href="./create.php">Create Account</a></span>
 		</header>';
 	}

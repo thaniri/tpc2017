@@ -35,7 +35,7 @@ function displayForm(){
 	echo '<div class="largeContent">
 		<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
 			Email:<input type="textbox" name="email"></input><br/>
-			Password:<input type="textbox" name="password"></input><br/>
+			Password:<input type="password" name="password"></input><br/>
 			<input type="submit" name="submit"></input>
 			<div id="inputErrors"></div>
 		</form>
