@@ -38,12 +38,16 @@ function displayBookResults($link){
 * This function adds a selected book to a users cookies for use in the shopping cart
 */
 function addToCartCookie(){
+    $successAlert = '<script>alert("Book added to cart!");</script>';
+
     if(isset($_POST['submit']) && isset($_SESSION['loggedin'])){
         if(isset($_COOKIE['cart'])){
             setcookie('cart', $_COOKIE['cart'] . ';' . $_POST['hidden'], time()+60*60);
+            echo $successAlert;
         }
         else{
             setcookie('cart', $_POST['hidden'], time()+60*60);
+            echo $successAlert;
             header("Refresh:0");
         }
     }

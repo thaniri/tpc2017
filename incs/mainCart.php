@@ -93,9 +93,11 @@ function removeFromCart(){
 * This function deletes the cart cookie
 */
 function clearCart(){
+    $clearAlert = '<script>alert("Cart cleared!");</script>';
     if(isset($_POST['clearCart'])){
         setcookie('cart', '1', time()-1);
         setcookie('cartPrice', '1', time()-1);
+        echo $clearAlert;
         header("Refresh:0");
     }
 }
@@ -154,7 +156,7 @@ function findUserID($link){
             return $result->fetch_array()[0];
     }
     else{
-        echo 'Nothing Found';
+        echo '<p>Nothing Found</p>';
     }
 }
 
