@@ -37,7 +37,7 @@ function displayCart($link){
             }
         }
         else{
-            echo '<p>Not logged in</p>';
+            echo '<p>You are not logged in!</p>';
         }
     echo '</div>
     </div>';

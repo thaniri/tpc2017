@@ -18,13 +18,34 @@ Todo:
 */
 function displayCustomerInfo($link){
     echo '<div class="largeContent"><div class="insideLargeContent">';
-	$result = mysqli_query($link, 'select cWallet from customer where cID = 15;');
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_array()) {
-            echo $row[0];
+        if(isset($_SESSION['loggedin'])){
+            $cID = findUserID($link);
+            $result = mysqli_query($link, 'select cWallet from customer where cID = ' . $cID . ';');
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_array()) {
+                    echo $row[0];
+                }
+            }
         }
-    }
+        else{
+            echo '<p>You are not logged in!</p>';
+        }
     echo '</div></div>';
+}
+
+/**
+* This function finds a user's ID based on their email session
+*
+* @param $link the handler to the database
+*/
+function findUserID($link){
+    $result = mysqli_query($link, 'select cID from customer where cEmail = "' . $_SESSION['email'] . '" limit 1');
+    if($result->num_rows > 0) {
+            return $result->fetch_array()[0];
+    }
+    else{
+        echo 'Nothing Found';
+    }
 }
 
 /**
