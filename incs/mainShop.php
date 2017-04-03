@@ -5,6 +5,7 @@
         die();
     }
     addToCartCookie();
+    addToPriceCookie();
     displayBookResults($link);
     
 /**
@@ -22,7 +23,9 @@ function displayBookResults($link){
                 . '<br/>Quantity: ' . $row["bQty"] 
                 . '<br/>Genre: ' . $row["bGenre"] 
                 . '<br/>Year: ' . $row["bYear"] 
-                . '<br/><input type="hidden" name="hidden" value="'.$row["bTitle"].'"></input><input type="submit" name="submit" value="Add to cart"></input>
+                . '<br/><input type="hidden" name="hidden" value="'.$row["bTitle"].'">
+                <input type="hidden" name="hiddenPrice" value="'.$row["bPrice"].'">
+                </input><input type="submit" name="submit" value="Add to cart"></input>
             </form></div>';
         }
     } 
@@ -35,12 +38,31 @@ function displayBookResults($link){
 * This function adds a selected book to a users cookies for use in the shopping cart
 */
 function addToCartCookie(){
+    $successAlert = '<script>alert("Book added to cart!");</script>';
+
     if(isset($_POST['submit']) && isset($_SESSION['loggedin'])){
         if(isset($_COOKIE['cart'])){
             setcookie('cart', $_COOKIE['cart'] . ';' . $_POST['hidden'], time()+60*60);
+            echo $successAlert;
         }
         else{
             setcookie('cart', $_POST['hidden'], time()+60*60);
+            echo $successAlert;
+            header("Refresh:0");
+        }
+    }
+}
+
+/**
+* This function adds the prices of selected books to a users cookiess for use in the shopping cart
+*/
+function addToPriceCookie(){
+    if(isset($_POST['submit']) && isset($_SESSION['loggedin'])){
+        if(isset($_COOKIE['cartPrice'])){
+            setcookie('cartPrice', $_COOKIE['cartPrice'] . ';' . $_POST['hiddenPrice'], time()+60*60);
+        }
+        else{
+            setcookie('cartPrice', $_POST['hiddenPrice'], time()+60*60);
             header("Refresh:0");
         }
     }

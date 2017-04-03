@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title>Homepage</title>
+        <title>Receipts</title>
 		<meta name="description" content="TPC Ecommerce Home Page">
 		<meta charset="UTF-8">
         <link href="css/styles.css" rel="stylesheet"/>
@@ -16,7 +16,7 @@
 				<?php 
 					include 'incs/header.php';
 					echo '<main>';
-					include 'incs/main.php';
+					include 'incs/mainReceipt.php';
 					echo '</main>';
 					include 'incs/footer.php';
 				?>

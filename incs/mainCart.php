@@ -8,6 +8,7 @@
     displayCart($link);
     purchaseCartContents($link);
     findUserID($link);
+    clearCart();
 
 /**
 * This function displays anything in the cart
@@ -15,22 +16,31 @@
 * @param $link the handler to connect to the database
 */
 function displayCart($link){
-    echo '<div class="largeContent">';
-    if(isset($_SESSION['loggedin'])){
-        $myArr = splitCookie($_COOKIE['cart']);
-    for($i = 0; $i < count($myArr); $i++){
-        showCartContents($link, $myArr[$i]);
-    }
-
-    echo '<form method="post" action="cart.php">
-            <input type="submit" name="purchase" value="purchase"></input>
-         </form>';
-
-    echo '</div>';
-    }
-    else{
-        echo 'Not logged in';
-    }
+    echo '<div class="largeContent">
+    <div class="insideLargeContent">';
+        if(isset($_SESSION['loggedin'])){
+            if(isset($_COOKIE['cart']) && isset($_COOKIE['cartPrice'])){
+                $titles = splitCookie($_COOKIE['cart']);
+                for($i = 0; $i < count($titles); $i++){
+                    showCartContents($link, $titles[$i]);
+                }
+            echo '<p>Your total is: $' . cartTotal() . '</p>';
+            echo '<form method="post" action="cart.php">
+                    <input type="submit" name="purchase" value="Purchase"></input>
+                </form>';
+            echo '<form method="post" action="cart.php">
+                    <input type="submit" name="clearCart" value="Clear Cart"></input>
+                </form>';
+            }
+            else{
+                echo '<p>You have nothing in your cart!</p>';
+            }
+        }
+        else{
+            echo '<p>You are not logged in!</p>';
+        }
+    echo '</div>
+    </div>';
 }
 
 /**
@@ -49,12 +59,26 @@ function splitCookie($cookie){
 * @param $link this is the link handler to the database
 * @param $input this is the book title to be searched for
 */
-function showCartContents($link, $input){
-    $result = mysqli_query($link, 'select bTitle, bPrice, bQty, bCover from book where bTitle = "'. $input .'" limit 1');
+function showCartContents($link, $titles){
+    $result = mysqli_query($link, 'select bTitle, bPrice, bQty, bCover from book where bTitle = "'. $titles .'" limit 1');
     if($result->num_rows > 0) {
         while($row = $result->fetch_array()) {
             echo '<span class="titles">' . $row["bTitle"] . '</span><span class="prices"> - Price: $' . $row["bPrice"] .  '</span><br/>';
         }
+    }
+}
+
+/**
+* This function prints out the total of a cart based on the cartPrice cookie
+*/
+function cartTotal(){
+    if(isset($_COOKIE['cartPrice'])){
+        $split = splitCookie($_COOKIE['cartPrice']);
+        $total = 0;
+        for($i = 0; $i < count($split); $i++){
+            $total += $split[$i];
+        }
+        return $total;
     }
 }
 
@@ -69,8 +93,11 @@ function removeFromCart(){
 * This function deletes the cart cookie
 */
 function clearCart(){
+    $clearAlert = '<script>alert("Cart cleared!");</script>';
     if(isset($_POST['clearCart'])){
-        setcookie('cart', '1', -1);
+        setcookie('cart', '1', time()-1);
+        setcookie('cartPrice', '1', time()-1);
+        echo $clearAlert;
         header("Refresh:0");
     }
 }
@@ -88,17 +115,19 @@ function purchaseCartContents($link){
 	$dt = new DateTime("@$currentTime");
     $dt = $dt->format('Y-m-d H:i:s'); //this is the date in a mysql friendly format
     if(isset($_POST['purchase'])){
-        //$link->begin_transaction();
-        createReceipt($link, $dt);
-        $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
-        $myArr = splitCookie($_COOKIE['cart']);
-        for($i = 0; $i < count($myArr); $i++){
-            mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
-            mysqli_query($link, 'insert into receiptBook (rID, bID) values ( ' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
-        }
-        //$link->commit();
-        setcookie('cart', '1', -1);
-        header("Refresh:0");
+        $link->begin_transaction();
+            createReceipt($link, $dt);
+            $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
+            $myArr = splitCookie($_COOKIE['cart']);
+            for($i = 0; $i < count($myArr); $i++){
+                mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
+                mysqli_query($link, 'insert into receiptBook (rID, bID) values (' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
+                mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'');
+            }
+        $link->commit();
+        setcookie('cart', '1', time()-1);
+        setcookie('cartPrice', '1', time()-1);
+        header("Location: ./receipt.php");
     }
 }
 
@@ -127,7 +156,7 @@ function findUserID($link){
             return $result->fetch_array()[0];
     }
     else{
-        echo 'Nothing Found';
+        echo '<p>Nothing Found</p>';
     }
 }
 
