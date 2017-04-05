@@ -9,4 +9,4 @@ CSS Licensing:
     https://fonts.google.com/specimen/Roboto?query=roboto&selection.family=Roboto
     Apache License, Version 2.0
 
-To run this page locally: Use XAMPP/LAMP/WAMP/MAMP and replace the htdocs folder with the this repository
+To run this page locally: Use XAMPP/LAMP/WAMP/MAMP and replace the htdocs folder with this repository
