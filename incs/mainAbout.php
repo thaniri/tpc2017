@@ -1,5 +1,5 @@
 <?php
-echo '<div class="largeContent">
+echo '<div class="largeContent"><div class="insideLargeContent">
 <h1>About Us</h1>
 	<h2>Our Company</h2>
 		<p>Based in Vancouver, TPC 2017 is an e-commerce website specializing in book sales. We aim to simplify the process of purchasing books online, incentivizing readers to pursue new novels and increasing profits for publishers through new markets.</p>
@@ -25,7 +25,7 @@ echo '<div class="largeContent">
 		<h3>Database Design and Integration:</h3>
 			</br>
 			<p>PHP was used to integrate our MySQL database with the website in a way that provides functionality and ease of use. The database is hosted on the cloud using Amazon Web Services</p>
-</div>';
+</div></div>';
 ?>
 
 <!--
