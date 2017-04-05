@@ -23,7 +23,7 @@ function displayCustomerInfo($link){
             $result = mysqli_query($link, 'select cWallet from customer where cID = ' . $cID . ';');
             if($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
-                    echo $row[0];
+                    echo '<p>Your account has $' . $row[0] . '</p>';
                 }
             }
         }

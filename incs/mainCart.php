@@ -116,18 +116,22 @@ function purchaseCartContents($link){
     $dt = $dt->format('Y-m-d H:i:s'); //this is the date in a mysql friendly format
     if(isset($_POST['purchase'])){
         $link->begin_transaction();
-            createReceipt($link, $dt);
-            $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
-            $myArr = splitCookie($_COOKIE['cart']);
-            for($i = 0; $i < count($myArr); $i++){
-                mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
-                mysqli_query($link, 'insert into receiptBook (rID, bID) values (' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
-                mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'');
+        mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'');
+            if(mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'')){  
+                createReceipt($link, $dt);
+                $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
+                $myArr = splitCookie($_COOKIE['cart']);
+                for($i = 0; $i < count($myArr); $i++){
+                    mysqli_query($link, 'update book set bQty = bQty-1 where bTitle = "'. $myArr[$i] .'"');
+                    mysqli_query($link, 'insert into receiptBook (rID, bID) values (' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
+                    setcookie('cart', '1', time()-1);
+                    setcookie('cartPrice', '1', time()-1);
+                }
+            }
+            else{
+                echo '<script>alert("You have too little money in your wallet");</script>';
             }
         $link->commit();
-        setcookie('cart', '1', time()-1);
-        setcookie('cartPrice', '1', time()-1);
-        header("Location: ./receipt.php");
     }
 }
 
