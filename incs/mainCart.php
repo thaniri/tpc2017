@@ -109,7 +109,6 @@ function purchaseCartContents($link){
     $cID = findUserID($link);
     if(isset($_POST['purchase'])){
         $link->begin_transaction();
-        mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() . ' where cID = ' . $cID . '');
             if(mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() . ' where cID = ' . $cID . '')){  
                 createReceipt($link, $dt);
                 $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
