@@ -25,7 +25,7 @@ function displayBookResults($link){
                 . '<br/>Year: ' . $row["bYear"] 
                 . '<br/><input type="hidden" name="hidden" value="'.$row["bTitle"].'">
                 <input type="hidden" name="hiddenPrice" value="'.$row["bPrice"].'">
-                </input><input type="submit" name="submit" value="Add to cart"></input>
+                </input><input type="submit" name="submit" value="Add to cart" class="formButton"></input>
             </form></div>';
         }
     } 

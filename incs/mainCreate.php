@@ -55,31 +55,35 @@ function createNew($email, $oldpass, $fname, $lname, $wallet){
 function displayForm(){
 	echo '
     <div class="largeContent">
+      <div class="insideLargeContent">
         <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
-            Email:<input type="textbox" name="email"></input><br/>
-            Password:<input type="password" name="password"></input><br/>
-            First Name:<input type="textbox" name="fname"></input><br/>
-            Last Name:<input type="textbox" name="lname"></input><br/>
-            Wallet:<input type="textbox" name="wallet"></input><br/>
-            <input type="submit" name="submit"></input>
+            Email:<input type="textbox" name="email" class="textInput"></input><br/>
+            Password:<input type="password" name="password" class="textInput"></input><br/>
+            First Name:<input type="textbox" name="fname" class="textInput"></input><br/>
+            Last Name:<input type="textbox" name="lname" class="textInput"></input><br/>
+            Wallet:<input type="textbox" name="wallet" class="textInput"></input><br/>
+            <input type="submit" name="submit" class="formButton"></input>
             <div id="inputErrors"></div>
         </form>
+        </div>
     </div>';
 }
 
 function displayFormInvalid(){
     echo '
     <div class="largeContent">
-        <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
-            Email:<input type="textbox" name="email"></input><br/>
-            Password:<input type="textbox" name="password"></input><br/>
-            First Name:<input type="textbox" name="fname"></input><br/>
-            Last Name:<input type="textbox" name="lname"></input><br/>
-            Wallet:<input type="textbox" name="wallet"></input><br/>
-            <input type="submit" name="submit"></input>
-            <div id="inputErrors"></div>
-        </form>
-        <p class="errorMessage">Invalid Input</p>
+        <div class="insideLargeContent">
+            <form name="createForm" onsubmit="return validateCreate()" action="create.php" method="post">
+                Email:<input type="textbox" name="email" class="textInput"></input><br/>
+                Password:<input type="textbox" name="password" class="textInput"></input><br/>
+                First Name:<input type="textbox" name="fname" class="textInput"></input><br/>
+                Last Name:<input type="textbox" name="lname" class="textInput"></input><br/>
+                Wallet:<input type="textbox" name="wallet" class="textInput"></input><br/>
+                <input type="submit" name="submit" class="formButton"></input>
+                <div id="inputErrors"></div>
+            </form>
+            <p class="errorMessage">Invalid Input</p>
+        </div>
     </div>';
 }
 /**

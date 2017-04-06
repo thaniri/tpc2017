@@ -9,7 +9,6 @@
     purchaseCartContents($link);
     findUserID($link);
     clearCart();
-
 /**
 * This function displays anything in the cart
 *
@@ -26,10 +25,10 @@ function displayCart($link){
                 }
             echo '<p>Your total is: $' . cartTotal() . '</p>';
             echo '<form method="post" action="cart.php">
-                    <input type="submit" name="purchase" value="Purchase"></input>
+                    <input type="submit" name="purchase" value="Purchase" class="formButton"></input>
                 </form>';
             echo '<form method="post" action="cart.php">
-                    <input type="submit" name="clearCart" value="Clear Cart"></input>
+                    <input type="submit" name="clearCart" value="Clear Cart" class="formButton"></input>
                 </form>';
             }
             else{
@@ -42,7 +41,6 @@ function displayCart($link){
     echo '</div>
     </div>';
 }
-
 /**
 * This function splits a cookie into an array by semicolon
 * helper method for showCartContents()
@@ -52,7 +50,6 @@ function displayCart($link){
 function splitCookie($cookie){
     return preg_split('/;/', $cookie);
 }
-
 /**
 * This function echos out the first result from the books table where title is equal to the inputed value
 *
@@ -67,7 +64,6 @@ function showCartContents($link, $titles){
         }
     }
 }
-
 /**
 * This function prints out the total of a cart based on the cartPrice cookie
 */
@@ -81,14 +77,11 @@ function cartTotal(){
         return $total;
     }
 }
-
 /*
 * This function removes a single item from the cart
 */
 function removeFromCart(){
-
 }
-
 /**
 * This function deletes the cart cookie
 */
@@ -101,7 +94,6 @@ function clearCart(){
         header("Refresh:0");
     }
 }
-
 /**
 * This function purchases the books in the cart   
 * 1 of each book is removed from the books table
@@ -114,10 +106,11 @@ function purchaseCartContents($link){
     $currentTime = getdate()[0];
 	$dt = new DateTime("@$currentTime");
     $dt = $dt->format('Y-m-d H:i:s'); //this is the date in a mysql friendly format
+    $cID = findUserID($link);
     if(isset($_POST['purchase'])){
         $link->begin_transaction();
-        mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'');
-            if(mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() .'')){  
+        mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() . ' where cID = ' . $cID . '');
+            if(mysqli_query($link, 'update customer set cWallet = cWallet - ' . cartTotal() . ' where cID = ' . $cID . '')){  
                 createReceipt($link, $dt);
                 $rID = mysqli_query($link, 'select last_insert_id()')->fetch_array(); //attempting to find receipt id
                 $myArr = splitCookie($_COOKIE['cart']);
@@ -126,15 +119,15 @@ function purchaseCartContents($link){
                     mysqli_query($link, 'insert into receiptBook (rID, bID) values (' . $rID[0] . ', (select bID from book where bTitle = "'. $myArr[$i] .'"))');
                     setcookie('cart', '1', time()-1);
                     setcookie('cartPrice', '1', time()-1);
+                    header("Location: http://localhost/tpc2017/receipt.php");
                 }
             }
             else{
-                echo '<script>alert("You have too little money in your wallet");</script>';
+                echo '<script>alert("You don\'t have enough money in your wallet");</script>';
             }
         $link->commit();
     }
 }
-
 /**
 * This function creates a receipt in the database based on a purchase
 * helper method for purchaseCartContents()
@@ -146,9 +139,7 @@ function createReceipt($link, $dt){
     $cID = findUserID($link);
     mysqli_query($link, 'insert into receipt (rID, cID, rDate) values (null, ' . $cID . ', "' . $dt . '")');
 }
-
 //insert into receipt (rID, cID, rDate) values (3, 2, "2017-03-30 08:44:20");
-
 /**
 * This function finds a user's ID based on their email session
 *
@@ -163,5 +154,4 @@ function findUserID($link){
         echo '<p>Nothing Found</p>';
     }
 }
-
 ?>

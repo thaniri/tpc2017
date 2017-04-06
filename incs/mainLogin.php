@@ -33,13 +33,15 @@ function checkForLogin(){
 */
 function displayForm(){
 	echo '<div class="largeContent">
-		<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
-			Email:<input type="textbox" name="email"></input><br/>
-			Password:<input type="password" name="password"></input><br/>
-			<input type="submit" name="submit"></input>
-			<div id="inputErrors"></div>
-		</form>
-	</div>';
+			<div class="insideLargeContent">
+				<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
+					Email:<input type="textbox" name="email" class="textInput"></input><br/>
+					Password:<input type="password" name="password" class="textInput"></input><br/>
+					<input type="submit" name="submit" class="formButton"></input>
+					<div id="inputErrors"></div>
+				</form>
+			</div>
+		</div>';
 }
 
 /**
@@ -47,14 +49,16 @@ function displayForm(){
 */
 function displayFormInvalid(){
 	echo '<div class="largeContent">
-		<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
-			Email:<input type="textbox" name="email"></input><br/>
-			Password:<input type="textbox" name="password"></input><br/>
-			<input type="submit" name="submit"></input>
-			<div id="inputErrors"></div>
-		</form>
-		<p class="errorMessage">Invalid Input</p>
-	</div>';
+			<div class="insideLargeContent">
+				<form name="loginForm" onsubmit="return validateLogin()" action="login.php" method="post">
+					Email:<input type="textbox" name="email" class="textInput"></input><br/>
+					Password:<input type="textbox" name="password" class="textInput"></input><br/>
+					<input type="submit" name="submit" class="formButton"></input>
+					<div id="inputErrors"></div>
+				</form>
+				<p class="errorMessage">Invalid Input</p>
+			</div>
+		</div>';
 }
 
 /**
